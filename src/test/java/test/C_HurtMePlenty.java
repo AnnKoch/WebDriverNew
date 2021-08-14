@@ -13,7 +13,7 @@ import page.CloudPage;
 import page.PricingCalculatorPage;
 import page.SearchResultsPage;
 
-public class HurtMePlenty {
+public class C_HurtMePlenty {
 
     public WebDriver driver;
 
@@ -36,8 +36,8 @@ public class HurtMePlenty {
         driver.switchTo().frame(0);
         driver.switchTo().frame("myFrame");
         calculatorPage.chooseComputeEngine();
-        calculatorPage.chooseOS();
         calculatorPage.enterNumberOfInstances("4");
+        calculatorPage.chooseOS();
         calculatorPage.chooseMachineClass();
         calculatorPage.scrollDown();
         calculatorPage.chooseSeries();
@@ -64,7 +64,7 @@ public class HurtMePlenty {
         Assert.assertEquals(regionActual.getText(), "Region: Frankfurt", "Region doesn't match");
         Assert.assertEquals(localSSDActual.getText(), "Total available local SSD space 2x375 GiB", "SSD type doesn't match");
         Assert.assertEquals(commitmentTermActual.getText(), "Commitment term: 1 Year", "Commitment term doesn't match");
-        Assert.assertEquals(estimatedCostActual.getText(), "Total Estimated Cost: USD 1,082.77 per 1 month", "Total cost doesn't match");
+        Assert.assertEquals(estimatedCostActual.getText(), "Total Estimated Cost: USD 1,083.33 per 1 month", "Total cost doesn't match");
     }
 
     @AfterMethod(alwaysRun = true)

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SearchResultsPage {
 
-    By searchResult = By.xpath("//*[@class='gs-title' and b='Google Cloud Platform Pricing Calculator']");
+    By searchResult = By.xpath("//*[@class='gs-title' and text()=\"Google Cloud Platform Pricing Calculator\"]");
     public String pageName;
 
     private final static int WAIT_TIMEOUT_SECONDS = 15;

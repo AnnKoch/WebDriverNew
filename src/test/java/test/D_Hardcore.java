@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static page.MailPage.monthlyCost;
 
-public class Hardcore {
+public class D_Hardcore {
     public WebDriver driver;
     private JavascriptExecutor getExecutor() {
         return (JavascriptExecutor)this.driver;
@@ -78,11 +78,14 @@ public class Hardcore {
 
         driver.switchTo().frame(0);
         driver.switchTo().frame("myFrame");
+        calculatorPage.scrollDown();
+        calculatorPage.scrollDown();
+        calculatorPage.scrollDown();
         calculatorPage.enterEmailValue();
         driver.switchTo().window(tabs.get(1));
         tenMinutesMailPage.verifyEmail();
 
-        Assert.assertEquals(monthlyCost, "USD 1,082.77", "Total Cost doesn't match");
+        Assert.assertEquals(monthlyCost, "USD 1,083.33", "Total Cost doesn't match");
     }
 
     @AfterMethod(alwaysRun = true)

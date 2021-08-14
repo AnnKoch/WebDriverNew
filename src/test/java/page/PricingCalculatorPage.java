@@ -11,29 +11,29 @@ import static page.MailPage.emailValue;
 public class PricingCalculatorPage {
 
     private final By computeEngineButton = By.xpath("//div[@title='Compute Engine' and @class='tab-holder compute']");
-    private final By numberOfInstances = By.id("input_65");
-    private final By OSDropDown = By.id("select_value_label_58");
-    private final By freeOSChoice = By.id("select_option_67");
-    private final By machineClassDropDown = By.id("select_value_label_59");
-    private final By regularMachineChoice = By.id("select_option_79");
-    private final By seriesDropDown = By.xpath("//*[@id='select_value_label_61']");
-    private final By seriesChoice = By.xpath("//*[@id='select_option_194']");
-    private final By machineTypeDropDown = By.id("select_value_label_62");
-    private final By machineTypeChoice = By.id("select_option_381");
+    private final By numberOfInstances = By.id("input_67");
+    private final By OSDropDown = By.id("select_value_label_60");
+    private final By freeOSChoice = By.id("select_option_69");
+    private final By machineClassDropDown = By.id("select_value_label_61");
+    private final By regularMachineChoice = By.id("select_option_82");
+    private final By seriesDropDown = By.xpath("//*[@id='select_value_label_63']");
+    private final By seriesChoice = By.xpath("//*[@id='select_option_201']");
+    private final By machineTypeDropDown = By.id("select_value_label_64");
+    private final By machineTypeChoice = By.id("select_option_397");
     private final By addGPUCheckBox = By.xpath("//*[contains(text(),'Add GPUs.')]");
-    private final By numberOfGPUDropDown = By.id("select_value_label_413");
-    private final By GPUChoice = By.id("select_option_420");
-    private final By GPUTypeDropDown = By.id("select_value_label_414");
+    private final By numberOfGPUDropDown = By.id("select_value_label_429");
+    private final By GPUChoice = By.id("select_option_436");
+    private final By GPUTypeDropDown = By.id("select_value_label_430");
     private final By GPUTypeChoice = By.xpath("//div[contains(text(), 'NVIDIA Tesla V100')]");
-    private final By SSDDropDown = By.id("select_value_label_375");
-    private final By SSDChoice = By.id("select_option_402");
-    private final By dataCenterLocationDropDown = By.id("select_value_label_63");
-    private final By dataCenterLocationChoice = By.id("select_option_211");
-    private final By committedUsageDropDown = By.id("select_value_label_64");
-    private final By committedUsageChoice = By.id("select_option_98");
+    private final By SSDDropDown = By.id("select_value_label_391");
+    private final By SSDChoice = By.id("select_option_418");
+    private final By dataCenterLocationDropDown = By.id("select_value_label_65");
+    private final By dataCenterLocationChoice = By.id("select_option_218");
+    private final By committedUsageDropDown = By.id("select_value_label_66");
+    private final By committedUsageChoice = By.id("select_option_101");
     private final By addToEstimateButton = By.xpath("//*[@class='md-raised md-primary cpc-button md-button md-ink-ripple']");
     private final By emailEstimateButton = By.id("email_quote");
-    private final By emailField = By.id("input_498");
+    private final By emailField = By.id("input_514");
     private final By sendEmailButton = By.xpath("//button[contains(text(), 'Send Email')]");
 
     private final static int WAIT_TIMEOUT_SECONDS = 20;
@@ -60,6 +60,7 @@ public class PricingCalculatorPage {
     public void enterNumberOfInstances (String instancesNumber){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(numberOfInstances));
+        driver.findElement(numberOfInstances).click();
         driver.findElement(numberOfInstances).sendKeys(instancesNumber);
     }
 
@@ -160,6 +161,8 @@ public class PricingCalculatorPage {
         driver.findElement(emailEstimateButton).click();
     }
     public void enterEmailValue(){
+        new WebDriverWait (driver, WAIT_TIMEOUT_SECONDS)
+                .until(ExpectedConditions.presenceOfElementLocated(emailField));
         driver.findElement(emailField).sendKeys(emailValue);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.presenceOfElementLocated(sendEmailButton));
